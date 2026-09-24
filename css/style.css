@@ -1,0 +1,150 @@
+@charset "UTF-8";
+
+body {
+  position: relative;
+  font-family: "courier New", monospace; /* ドット風フォントあとで入れ替える */
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  background-image: linear-gradient(#eee 1px, transparent 1px), linear-gradient(90deg, #eee 1px, transparent 1px);
+  background-size: 1.5rem 1.5rem;
+  background-repeat: repeat;
+  filter: url(#rough);
+  z-index: -1; /* 一番背面に配置 */
+}
+
+.todo-section {
+  max-width: 580px; /* 36.25rem*/
+  margin: 3.75rem auto 0; /* 60px */
+  padding-bottom: 4rem;
+  position: relative;
+}
+.todo-header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem; /* h2とボタンの間隔 */
+  background-color: #fff;
+  border: 1px solid #333;
+  border-bottom: none;
+  padding: 0.3rem 0.8rem;
+  width: fit-content;
+  box-shadow: 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.15);
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+.todo-header h2 {
+  margin: 0;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.task-item input[type="checkbox"] {
+  filter: url(#rough);
+}
+
+#add-btn {
+  border: 1px solid #333;
+  border-radius: 50%;
+  width: 1.6rem;
+  height: 1.6rem;
+  background: #fff;
+  cursor: pointer;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+#task-list {
+  list-style: none;
+  padding: 4rem 1.5rem 1.5rem; /* 上だけ4remにして犬の歩行レーンを確保 */
+  margin: 0;
+  background: #fff;
+  border: 1px solid #333;
+  box-shadow: 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.15);
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  border-bottom: 1px dashed #999;
+  padding: 0.8rem 0;
+}
+.task-item input[type="checkbox"] {
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: #a5c8e1; /* 薄い水色 */
+  flex-shrink: 0;
+}
+.task-item input[type="text"] {
+  border: none;
+  outline: none;
+  flex: 1;
+  background: transparent;
+  font-family: inherit;
+  font-size: 1rem;
+}
+.task-item button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #999;
+  font-size: 1.2rem;
+}
+
+/* 犬 */
+#dog {
+  position: absolute;
+  top: -2.8rem; /* 歩行レーンの中に収まる高さ */
+  right: 0;
+  width: 5rem;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px dashed #000; /* 点線の罫線 */
+  padding: 0.5rem 0;
+}
+.task-item input[type="checkbox"] {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+.task-item input[type="text"] {
+  border: none;
+  outline: none;
+  flex: 1;
+  background: transparent;
+}
+
+/* ---------- footer ---------- */
+.footer {
+  background-color: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-top: 1px solid #666;
+  box-shadow: 0 -4px 8px 0 rgba(0, 0, 0, 0.08);
+}
+.copyright {
+  font-size: 0.9em;
+  color: #666;
+  letter-spacing: 0.05em;
+  text-align: center;
+  margin: 1.5rem;
+}
+/* --------------------
+ここからスマートフォン版
+-------------------- */
+@media (max-width: 767px) {
+  .todo-section {
+    max-width: 300px; /* rem*/
+  }
+}
